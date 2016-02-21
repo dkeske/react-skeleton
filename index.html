@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom-server.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+
+
+</head>
+<body>
+    <div id="content">
+
+    </div>
+    <script type="text/jsx">
+        var DanielComponent = React.createClass({
+            doSomething: function(){
+                console.log("The user is" + this.props.user);
+            },
+            render: function(){
+                return(
+                        <div>
+                            <h2>{this.props.user}</h2>
+                            <p>{this.props.children}</p>
+                            <a onClick={this.doSomething} href="#">Click me</a>
+                        </div>
+
+                );
+            }
+        });
+        React.render(
+                <div>
+                    <DanielComponent user="Emilie" food="Tuna">This guy is awesome!</DanielComponent>
+                    <DanielComponent user="Daniel" food="Bacon">She smells like mint</DanielComponent>
+                    <DanielComponent user="Baki" food="Hehe"/>
+                </div>, document.getElementById('content')
+        );
+    </script>
+</body>
+</html>
